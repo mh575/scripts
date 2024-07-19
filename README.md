@@ -1,4 +1,2 @@
 # scripts
-Every error brings me that much closer to closure. 
-
-I'll populate this with random Google Sheets scripts I write so I don't lose them. 
+I'll populate this repo with random Google Sheets scripts I write so I don't lose them. 
