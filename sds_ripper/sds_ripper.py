@@ -17,7 +17,10 @@ def main():
     for file in os.listdir(dir):
          filename = os.fsdecode(file)
          if filename.endswith('.pdf'):
-             pass
+             doc = pymupdf.open('sds_files/'+filename)
+             page = doc.load_page(0)
+             for page in doc:
+                 print(page.get_text())
 
          else: # file is not a pdf
             if not (filename == '.gitignore'):
