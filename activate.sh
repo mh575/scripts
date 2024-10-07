@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# use source not bash in terminal
+
 # requirements:
 
 # python -m venv pymupdf-venv
