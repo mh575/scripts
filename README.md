@@ -1,2 +1,2 @@
 # scripts
-I'll populate this repo with random Google Sheets scripts I write so I don't lose them. 
+Assorted scripts and files required to fix the chemical catalogue as part of the UofA inventory pilot program
