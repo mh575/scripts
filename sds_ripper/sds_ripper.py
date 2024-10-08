@@ -18,10 +18,12 @@ def main():
          filename = os.fsdecode(file)
          if filename.endswith('.pdf'):
              doc = pymupdf.open('sds_files/'+filename)
+             doc_str = ''
              page = doc.load_page(0)
              for page in doc:
                  print(page.get_text())
-
+                 doc_str += page.get_text()
+             print(doc_str)
          else: # file is not a pdf
             if not (filename == '.gitignore'):
                 raise ValueError('file extension is not pdf: '+filename)
