@@ -15,16 +15,18 @@ def main():
     dir = os.fsencode(os.getcwd()+'/sds_files')
     
     for file in os.listdir(dir):
-         filename = os.fsdecode(file)
-         if filename.endswith('.pdf'):
-             doc = pymupdf.open('sds_files/'+filename)
-             doc_str = ''
-             page = doc.load_page(0)
-             for page in doc:
-                 print(page.get_text())
-                 doc_str += page.get_text()
-             print(doc_str)
-         else: # file is not a pdf
+        filename = os.fsdecode(file)
+        print(filename)
+        if filename.endswith('.pdf'): # extract data from pdf file, export to csv file in catalogue format
+            doc = pymupdf.open('sds_files/'+filename)
+            doc_str = ''
+            page = doc.load_page(0)
+            
+            for page in doc:
+                print(page.get_text(sort=True))
+                doc_str += page.get_text(sort=True)             
+            print(doc_str)
+        else: # file is not a pdf
             if not (filename == '.gitignore'):
                 raise ValueError('file extension is not pdf: '+filename)
             else:
