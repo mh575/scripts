@@ -15,6 +15,5 @@ with sync_playwright() as p: # get user credentials to continue: UofA portal, pr
     page.locator('#onetrust-accept-btn-handler').click()
     page.get_by_text('Search Type')
     page.locator('#type').click()
-    print('what the fuck')
     # this is where you search by name or cas -> download pdf -> parse with pymupdf lib -> csv results
     browser.close()
