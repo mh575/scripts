@@ -1,11 +1,10 @@
-import os
-import pymupdf
+import os, pymupdf, re, playwright
 print(pymupdf.__doc__)
 # general idea: if match in common field title: check line and line under, maybe regex between field title x and next field title y? 
 
 '''
 TO PULL:
-chemical name, synonyms, forumula, flash point, density, melting point, boiling point, molecular weight, pH value, physical state, compatability category(?), UN number, UN pack group, TDG primary, TDG secondary, TDG teritary, GHS classification, GHS hazard statements (pictogram(s) derived from h-codes), GHS signal word, GHS precautionary statement codes, NFPA Diamond, DOT Guide(?)
+chemical name, synonyms, forumula, flash point, density, melting point, boiling point, molecular weight, pH value, physical state (form), compatability category(?), UN number, UN pack group, TDG primary, TDG secondary, TDG teritary, GHS classification, GHS hazard statements (pictogram(s) derived from h-codes), GHS signal word, GHS precautionary statement codes, DOT Guide(?)
 '''
 
 def main():
@@ -26,6 +25,7 @@ def main():
                 print(page.get_text(sort=True))
                 doc_str += page.get_text(sort=True)             
             print(doc_str)
+
         else: # file is not a pdf
             if not (filename == '.gitignore'):
                 raise ValueError('file extension is not pdf: '+filename)
